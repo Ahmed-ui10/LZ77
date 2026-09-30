@@ -1,4 +1,4 @@
-def compress(text, window_size=20, lookahead_size=10):
+def compress(text, window_size=1024, lookahead_size=256):
 
     tags = []
     i = 0
