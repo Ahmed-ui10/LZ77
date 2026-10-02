@@ -1,4 +1,4 @@
-from LZ77 import compress, decompress
+from LZ77 import compress
 import ast
 
 
@@ -94,66 +94,6 @@ def main():
         )
 
         print("\nCompression completed successfully.")
-
-    elif choice == "2":
-
-        print("\nEnter the LZ77 tags.")
-        print("Example:")
-        print(
-            "[(0, 0, 'A'), "
-            "(0, 0, 'B'), "
-            "(2, 1, 'A')]"
-        )
-
-        tags_input = input("\nTags: ")
-
-        try:
-            tags = ast.literal_eval(tags_input)
-
-            if not isinstance(tags, list):
-                print("Error: Tags must be entered as a list.")
-                return
-
-            for tag in tags:
-
-                if not isinstance(tag, tuple) or len(tag) != 3:
-                    print(
-                        "Error: Each tag must have the form "
-                        "(position, length, next_symbol)."
-                    )
-                    return
-
-                position, length, next_symbol = tag
-
-                if not isinstance(position, int) or position < 0:
-                    print(
-                        "Error: Position must be "
-                        "a non-negative integer."
-                    )
-                    return
-
-                if not isinstance(length, int) or length < 0:
-                    print(
-                        "Error: Length must be "
-                        "a non-negative integer."
-                    )
-                    return
-
-                if not isinstance(next_symbol, str):
-                    print(
-                        "Error: Next symbol must be a string."
-                    )
-                    return
-
-            text = decompress(tags)
-
-            print("\nDecompressed Text:")
-            print(text)
-
-            print("\nDecompression completed successfully.")
-
-        except (ValueError, SyntaxError):
-            print("Error: Invalid tags format.")
 
     else:
         print("\nInvalid choice. Please enter 1 or 2.")

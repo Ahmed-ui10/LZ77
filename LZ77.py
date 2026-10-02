@@ -44,29 +44,3 @@ def compress(text, window_size=8192, lookahead_size=4096):
         i += best_length + 1
 
     return tags
-
-
-def decompress(tags):
-    """
-    LZ77 Decompression
-
-    Supports overlapping / repetitive sequences.
-    """
-
-    output = []
-
-    for position, length, next_symbol in tags:
-
-        if position > 0:
-
-            start = len(output) - position
-
-            for _ in range(length):
-                output.append(output[start])
-
-                start += 1
-
-        if next_symbol != "":
-            output.append(next_symbol)
-
-    return "".join(output)
