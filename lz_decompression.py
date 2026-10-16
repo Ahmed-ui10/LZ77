@@ -1,11 +1,7 @@
 from lz_compression import read_compressed_file
 
 def _decompress(tags):
-    """
-    Decompress LZ77 tags.
-    Handles repetitive / overlapped sequences because we append
-    symbols one by one to the result list.
-    """
+    
     result = []
 
     for position, length, next_symbol in tags:

@@ -5,7 +5,7 @@ import os
 from lz_compression import compress_file
 from lz_decompression import decompress_file
 
-
+77
 BG_MAIN      = "#1e1e1e"
 BG_PANEL     = "#252526"
 BG_TEXT      = "#1a1a1a"
