@@ -1,15 +1,6 @@
 import struct
 
 def _compress(text, window_size=8192, lookahead_size=4096):
-    """
-    LZ77 compression with handling of repetitive sequences.
-    Implements the algorithm explained in lectures:
-      - Search Buffer  (already encoded part)
-      - Look-Ahead Buffer (next part to encode)
-      - Find the longest match
-      - Output tag <Position, Length, NextSymbol>
-      - Handle repetitive (overlapped) sequences efficiently.
-    """
     tags = []
     i = 0
     n = len(text)
